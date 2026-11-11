@@ -35,8 +35,9 @@ const btn = document.querySelector(".search-btn");
 
 btn.addEventListener("click", function(){
     const city = document.querySelector(".city-input").value.trim();
-    if (city){
-        getData(city);
+    const shortCut = document.querySelector(".country-select").value;
+    if (city && shortCut){
+        getData(city,shortCut);
     }
     
 
