@@ -4,4 +4,12 @@ async function getData(){
     console.log(text)
     console.log(text.currentConditions.temp);
 }
+
+
+const weatherinfo = document.querySelector(".example");
+const btn = document.querySelector(".search-btn");
+
+btn.addEventListener("click", function(){
+    console.log("ahoj")
+});
 getData();
