@@ -1,31 +1,36 @@
 async function getData(city){
     
     try{
-        const url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Prague,CZ?unitGroup=metric";
+        let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},CZ?unitGroup=metric`;
 
         const response = await fetch(url);
+
 
         const data = await response.json();
 
         const cityname = data.resolvedAddress;
-        consttemp = data.currentConditions.temp;
+        const temp = data.currentConditions.temp;
         const conditions = data.currentConditions.conditions;
 
         weatherinfo.innerHTML = `
         <h2>${cityname}</h2>
         <p>${conditions}</p>
+        <p>${temp}</p>
+
         `
 
 
 
     }catch(error){
+        console.error(error)
         weatherinfo.innerHTML = `<p>Err: Enter different city`
     }
 
 }
 
 
-const weatherinfo = document.querySelector(".example");
+const weatherinfo = document.querySelector(".weather-info");
+
 const btn = document.querySelector(".search-btn");
 
 btn.addEventListener("click", function(){
