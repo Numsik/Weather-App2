@@ -1,7 +1,7 @@
-async function getData(city){
+async function getData(city,z){
     
     try{
-        let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},CZ?unitGroup=metric`;
+        let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${z}?unitGroup=metric`;
 
         const response = await fetch(url);
 
